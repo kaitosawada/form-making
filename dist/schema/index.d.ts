@@ -4,13 +4,13 @@ export type FormSchema0 = FormSchemaAutocomplete | FormSchemaBirthday | FormSche
  */
 export interface FormSchemaAutocomplete {
     component: "autocomplete";
-    /**
-     * describe: Unimplemented <未実装>
-     */
-    describe: string;
     label: string;
     name: string;
     options: string[];
+    /**
+     * describe: Unimplemented <未実装>
+     */
+    describe?: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
@@ -19,12 +19,12 @@ export interface FormSchemaAutocomplete {
  */
 export interface FormSchemaBirthday {
     component: "birthday";
+    label: string;
+    name: string;
     /**
      * describe: Unimplemented <未実装>
      */
-    describe: string;
-    label: string;
-    name: string;
+    describe?: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
@@ -40,13 +40,13 @@ export interface FormSchemaCard {
  */
 export interface FormSchemaCheckbox {
     component: "checkbox";
-    /**
-     * describe: Unimplemented <未実装>
-     */
-    describe: string;
     label: string;
     name: string;
     options: string[];
+    /**
+     * describe: Unimplemented <未実装>
+     */
+    describe?: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
@@ -60,13 +60,13 @@ export interface FormSchemaMarkdown {
  */
 export interface FormSchemaRadio {
     component: "radio";
-    /**
-     * describe: Unimplemented <未実装>
-     */
-    describe: string;
     label: string;
     name: string;
     options: string[];
+    /**
+     * describe: Unimplemented <未実装>
+     */
+    describe?: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
@@ -75,26 +75,26 @@ export interface FormSchemaRadio {
  */
 export interface FormSchemaSelect {
     component: "select";
-    /**
-     * describe: Unimplemented <未実装>
-     */
-    describe: string;
     label: string;
     name: string;
     options: string[];
+    /**
+     * describe: Unimplemented <未実装>
+     */
+    describe?: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
 export interface FormSchemaTextfield {
     component: "textfield";
+    label: string;
+    name: string;
     /**
      * describe: Unimplemented <未実装>
      */
-    describe: string;
-    label: string;
-    name: string;
-    type: HtmlInputTypeAttribute;
+    describe?: string;
     show?: string;
+    type?: HtmlInputTypeAttribute;
     validate?: FormSchemaValidation;
 }
 /**

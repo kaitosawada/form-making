@@ -26,17 +26,17 @@ elements:
           type: string
     textfield:
       properties:
-        type:
-          ref: htmlInputTypeAttribute
         label:
           type: string
         name:
           type: string
+      optionalProperties:
+        type:
+          ref: htmlInputTypeAttribute
         describe:
           type: string
           metadata:
             description: "describe: Unimplemented <未実装>"
-      optionalProperties:
         validate:
           ref: formSchemaValidation
         show:
@@ -49,11 +49,11 @@ elements:
           type: string
         name:
           type: string
+      optionalProperties:
         describe:
           type: string
           metadata:
             description: "describe: Unimplemented <未実装>"
-      optionalProperties:
         validate:
           ref: formSchemaValidation
         show:
@@ -66,14 +66,14 @@ elements:
           type: string
         name:
           type: string
-        describe:
-          type: string
-          metadata:
-            description: "describe: Unimplemented <未実装>"
         options:
           elements:
             type: string
       optionalProperties:
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
         validate:
           ref: formSchemaValidation
         show:
@@ -86,14 +86,14 @@ elements:
           type: string
         name:
           type: string
-        describe:
-          type: string
-          metadata:
-            description: "describe: Unimplemented <未実装>"
         options:
           elements:
             type: string
       optionalProperties:
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
         validate:
           ref: formSchemaValidation
         show:
@@ -106,14 +106,14 @@ elements:
           type: string
         name:
           type: string
-        describe:
-          type: string
-          metadata:
-            description: "describe: Unimplemented <未実装>"
         options:
           elements:
             type: string
       optionalProperties:
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
         validate:
           ref: formSchemaValidation
         show:
@@ -126,14 +126,14 @@ elements:
           type: string
         name:
           type: string
-        describe:
-          type: string
-          metadata:
-            description: "describe: Unimplemented <未実装>"
         options:
           elements:
             type: string
       optionalProperties:
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
         validate:
           ref: formSchemaValidation
         show:
