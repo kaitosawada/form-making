@@ -1,6 +1,12 @@
 export type FormSchema0 = FormSchemaAutocomplete | FormSchemaBirthday | FormSchemaCard | FormSchemaCheckbox | FormSchemaMarkdown | FormSchemaRadio | FormSchemaSelect | FormSchemaTextfield | FormSchemaWarning;
+/**
+ * 複数選択不可 / selectの強化版
+ */
 export interface FormSchemaAutocomplete {
     component: "autocomplete";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
@@ -8,20 +14,35 @@ export interface FormSchemaAutocomplete {
     show?: string;
     validate?: FormSchemaValidation;
 }
+/**
+ * Unimplemented <未実装>
+ */
 export interface FormSchemaBirthday {
     component: "birthday";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
     show?: string;
     validate?: FormSchemaValidation;
 }
+/**
+ * Deprecated <削除予定>
+ */
 export interface FormSchemaCard {
     component: "card";
     show?: string;
 }
+/**
+ * 複数選択可
+ */
 export interface FormSchemaCheckbox {
     component: "checkbox";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
@@ -34,8 +55,14 @@ export interface FormSchemaMarkdown {
     contents: string;
     show?: string;
 }
+/**
+ * 複数選択不可
+ */
 export interface FormSchemaRadio {
     component: "radio";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
@@ -43,8 +70,14 @@ export interface FormSchemaRadio {
     show?: string;
     validate?: FormSchemaValidation;
 }
+/**
+ * 複数選択不可
+ */
 export interface FormSchemaSelect {
     component: "select";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
@@ -54,6 +87,9 @@ export interface FormSchemaSelect {
 }
 export interface FormSchemaTextfield {
     component: "textfield";
+    /**
+     * describe: Unimplemented <未実装>
+     */
     describe: string;
     label: string;
     name: string;
@@ -61,9 +97,12 @@ export interface FormSchemaTextfield {
     show?: string;
     validate?: FormSchemaValidation;
 }
+/**
+ * Deprecated <削除予定>
+ */
 export interface FormSchemaWarning {
     component: "warning";
-    contents: string;
+    contents: string[];
     show?: string;
 }
 export type FormSchema = FormSchema0[];

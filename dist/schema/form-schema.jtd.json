@@ -15,9 +15,14 @@
                 }
             },
             "warning": {
+                "metadata": {
+                    "description": "Deprecated <削除予定>"
+                },
                 "properties": {
                     "contents": {
-                        "type": "string"
+                        "elements": {
+                            "type": "string"
+                        }
                     }
                 },
                 "optionalProperties": {
@@ -27,6 +32,9 @@
                 }
             },
             "card": {
+                "metadata": {
+                    "description": "Deprecated <削除予定>"
+                },
                 "optionalProperties": {
                     "show": {
                         "type": "string"
@@ -45,7 +53,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     }
                 },
                 "optionalProperties": {
@@ -58,6 +69,9 @@
                 }
             },
             "birthday": {
+                "metadata": {
+                    "description": "Unimplemented <未実装>"
+                },
                 "properties": {
                     "label": {
                         "type": "string"
@@ -66,7 +80,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     }
                 },
                 "optionalProperties": {
@@ -79,6 +96,9 @@
                 }
             },
             "radio": {
+                "metadata": {
+                    "description": "複数選択不可"
+                },
                 "properties": {
                     "label": {
                         "type": "string"
@@ -87,7 +107,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     },
                     "options": {
                         "elements": {
@@ -105,6 +128,9 @@
                 }
             },
             "checkbox": {
+                "metadata": {
+                    "description": "複数選択可"
+                },
                 "properties": {
                     "label": {
                         "type": "string"
@@ -113,7 +139,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     },
                     "options": {
                         "elements": {
@@ -131,6 +160,9 @@
                 }
             },
             "autocomplete": {
+                "metadata": {
+                    "description": "複数選択不可 / selectの強化版"
+                },
                 "properties": {
                     "label": {
                         "type": "string"
@@ -139,7 +171,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     },
                     "options": {
                         "elements": {
@@ -157,6 +192,9 @@
                 }
             },
             "select": {
+                "metadata": {
+                    "description": "複数選択不可"
+                },
                 "properties": {
                     "label": {
                         "type": "string"
@@ -165,7 +203,10 @@
                         "type": "string"
                     },
                     "describe": {
-                        "type": "string"
+                        "type": "string",
+                        "metadata": {
+                            "description": "describe: Unimplemented <未実装>"
+                        }
                     },
                     "options": {
                         "elements": {

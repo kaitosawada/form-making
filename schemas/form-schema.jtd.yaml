@@ -13,7 +13,8 @@ elements:
         description: Deprecated <削除予定>
       properties:
         contents:
-          type: string
+          elements:
+            type: string
       optionalProperties:
         show:
           type: string
