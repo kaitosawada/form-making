@@ -1,0 +1,27 @@
+{
+  "name": "@ozonehl/form-making",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "rm -rf dist",
+    "build": "tsc -d",
+    "codegen": "js-yaml schemas/form-schema.jtd.yaml > src/schema/form-schema.jtd.json && jtd-codegen src/schema/form-schema.jtd.json --typescript-out src/schema",
+    "install-codegen:mac": "brew install jsontypedef/jsontypedef/jtd-codegen && npm install -g js-yaml"
+  },
+  "author": "ksawaa@ozonehl",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/json-logic-js": "^2.0.1",
+    "ajv": "^8.12.0",
+    "js-to-json-logic": "^0.1.3",
+    "json-logic-js": "^2.0.2"
+  }
+}

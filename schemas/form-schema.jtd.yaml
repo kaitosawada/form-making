@@ -1,0 +1,176 @@
+elements:
+  discriminator: component
+  mapping:
+    markdown:
+      properties:
+        contents:
+          type: string
+      optionalProperties:
+        show:
+          type: string
+    warning:
+      metadata:
+        description: Deprecated <削除予定>
+      properties:
+        contents:
+          type: string
+      optionalProperties:
+        show:
+          type: string
+    card:
+      metadata:
+        description: Deprecated <削除予定>
+      optionalProperties:
+        show:
+          type: string
+    textfield:
+      properties:
+        type:
+          ref: htmlInputTypeAttribute
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+    birthday:
+      metadata:
+        description: Unimplemented <未実装>
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+    radio:
+      metadata:
+        description: 複数選択不可
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+        options:
+          elements:
+            type: string
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+    checkbox:
+      metadata:
+        description: 複数選択可
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+        options:
+          elements:
+            type: string
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+    autocomplete:
+      metadata:
+        description: 複数選択不可 / selectの強化版
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+        options:
+          elements:
+            type: string
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+    select:
+      metadata:
+        description: 複数選択不可
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        describe:
+          type: string
+          metadata:
+            description: "describe: Unimplemented <未実装>"
+        options:
+          elements:
+            type: string
+      optionalProperties:
+        validate:
+          ref: formSchemaValidation
+        show:
+          type: string
+
+definitions:
+  htmlInputTypeAttribute:
+    enum:
+      - button
+      - checkbox
+      - color
+      - date
+      - datetime-local
+      - email
+      - file
+      - hidden
+      - image
+      - month
+      - number
+      - password
+      - radio
+      - range
+      - reset
+      - search
+      - submit
+      - tel
+      - text
+      - time
+      - url
+      - week
+  formSchemaValidation:
+    optionalProperties:
+      required:
+        type: string
+      items:
+        elements:
+          properties:
+            expr:
+              type: string # JSON Logic
+            message:
+              type: string

@@ -1,0 +1,234 @@
+{
+    "elements": {
+        "discriminator": "component",
+        "mapping": {
+            "markdown": {
+                "properties": {
+                    "contents": {
+                        "type": "string"
+                    }
+                },
+                "optionalProperties": {
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "warning": {
+                "properties": {
+                    "contents": {
+                        "type": "string"
+                    }
+                },
+                "optionalProperties": {
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "card": {
+                "optionalProperties": {
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "textfield": {
+                "properties": {
+                    "type": {
+                        "ref": "htmlInputTypeAttribute"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "birthday": {
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "radio": {
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "elements": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "checkbox": {
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "elements": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "autocomplete": {
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "elements": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            },
+            "select": {
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "describe": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "elements": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "optionalProperties": {
+                    "validate": {
+                        "ref": "formSchemaValidation"
+                    },
+                    "show": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "htmlInputTypeAttribute": {
+            "enum": [
+                "button",
+                "checkbox",
+                "color",
+                "date",
+                "datetime-local",
+                "email",
+                "file",
+                "hidden",
+                "image",
+                "month",
+                "number",
+                "password",
+                "radio",
+                "range",
+                "reset",
+                "search",
+                "submit",
+                "tel",
+                "text",
+                "time",
+                "url",
+                "week"
+            ]
+        },
+        "formSchemaValidation": {
+            "optionalProperties": {
+                "required": {
+                    "type": "string"
+                },
+                "items": {
+                    "elements": {
+                        "properties": {
+                            "expr": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
