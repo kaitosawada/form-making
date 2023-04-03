@@ -30,7 +30,7 @@ export const convertDataToCsv = (schema: FormSchema, data: FormData[]) => {
               row[s.name + "__" + i] = item.includes(o) ? "〇" : "×";
             });
           } else {
-            row[s.name] = item.join(",");
+            row[s.name] = item.join(" ");
           }
         }
       }

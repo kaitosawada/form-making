@@ -30,7 +30,7 @@ const convertDataToCsv = (schema, data) => {
                         });
                     }
                     else {
-                        row[s.name] = item.join(",");
+                        row[s.name] = item.join(" ");
                     }
                 }
             }
