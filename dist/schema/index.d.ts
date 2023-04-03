@@ -35,6 +35,9 @@ export interface FormSchemaCard {
     component: "card";
     show?: string;
 }
+export interface FormSchemaCheckboxExport {
+    separate?: boolean;
+}
 /**
  * 複数選択可
  */
@@ -47,6 +50,7 @@ export interface FormSchemaCheckbox {
      * describe: Unimplemented <未実装>
      */
     describe?: string;
+    export?: FormSchemaCheckboxExport;
     show?: string;
     validate?: FormSchemaValidation;
 }
