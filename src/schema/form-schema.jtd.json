@@ -156,6 +156,13 @@
           },
           "show": {
             "type": "string"
+          },
+          "export": {
+            "optionalProperties": {
+              "separate": {
+                "type": "boolean"
+              }
+            }
           }
         }
       },

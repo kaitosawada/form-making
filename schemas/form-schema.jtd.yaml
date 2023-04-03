@@ -98,6 +98,10 @@ elements:
           ref: formSchemaValidation
         show:
           type: string
+        export:
+          optionalProperties:
+            separate:
+              type: boolean
     autocomplete:
       metadata:
         description: 複数選択不可 / selectの強化版
