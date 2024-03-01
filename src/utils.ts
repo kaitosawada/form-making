@@ -1,5 +1,5 @@
 import {
-  FormSchema0,
+  InputComponent,
   FormSchemaAutocomplete,
   FormSchemaBirthday,
   FormSchemaCheckbox,
@@ -16,7 +16,7 @@ export type FormSchemaField =
   | FormSchemaSelect
   | FormSchemaTextfield;
 
-export const isField = (schema: FormSchema0): schema is FormSchemaField => {
+export const isField = (schema: InputComponent): schema is FormSchemaField => {
   switch (schema.component) {
     case "textfield":
     case "autocomplete":

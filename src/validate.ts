@@ -1,6 +1,6 @@
 import jsonLogic from "json-logic-js";
 import parse from "js-to-json-logic";
-import { FormSchema0, isField } from ".";
+import { InputComponent, isField } from ".";
 import Ajv from "ajv/dist/jtd";
 import schema from "./schema/form-schema.jtd.json";
 
@@ -27,7 +27,7 @@ jsonLogic.add_operation("isTel", isTel);
 jsonLogic.add_operation("isPostcode", isPostcode);
 
 export const validateValue =
-  (input: FormSchema0, watchAllFields: any) =>
+  (input: InputComponent, watchAllFields: any) =>
   (self: any): string | undefined => {
     if (isField(input) && input.validate) {
       if (input.validate.required && (!self || self === "")) {
@@ -49,8 +49,8 @@ export const validateValue =
     return;
   };
 
-export const isShow = (input: FormSchema0, watchAllFields: any) => {
-  if (!input.show) return true;
+export const isShow = (input: InputComponent, watchAllFields: any) => {
+  if (input.component === "identifier" || !input.show) return true;
   const expr = parse(input.show);
   let data: any = {
     ...watchAllFields,

@@ -142,8 +142,24 @@ elements:
           ref: formSchemaValidation
         show:
           type: string
+    identifier:
+      metadata:
+        description: サーバーサイドで生成される識別子
+      properties:
+        label:
+          type: string
+        name:
+          type: string
+        type:
+          ref: identifierGenerateType
+        
 
 definitions:
+  identifierGenerateType:
+    enum:
+      - uuidv4
+      - nanoid_custom_8
+      - sequential
   htmlInputTypeAttribute:
     enum:
       - button

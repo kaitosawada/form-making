@@ -16,7 +16,7 @@ export const convertDataToCsv = (schema: FormSchema, data: FormData[]) => {
       isCanceled: formData.isCanceled,
     };
     schema.forEach((s) => {
-      if (isField(s)) {
+      if (isField(s) || s.component === "identifier") {
         const item = formData.body[s.name];
         if (!item) {
           row[s.name] = "";
@@ -42,7 +42,7 @@ export const convertDataToCsv = (schema: FormSchema, data: FormData[]) => {
     isCanceled: "キャンセル",
   };
   schema.forEach((s) => {
-    if (isField(s)) {
+    if (isField(s) || s.component === "identifier") {
       if (s.component === "checkbox" && s.export?.separate) {
         s.options.forEach((o, i) => {
           columns[s.name + "__" + i] = s.label + "：" + o;
