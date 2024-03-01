@@ -12,7 +12,7 @@ const convertDataToCsv = (schema, data) => {
         };
         schema.forEach((s) => {
             var _a;
-            if ((0, utils_1.isField)(s)) {
+            if ((0, utils_1.isField)(s) || s.component === "identifier") {
                 const item = formData.body[s.name];
                 if (!item) {
                     row[s.name] = "";
@@ -43,7 +43,7 @@ const convertDataToCsv = (schema, data) => {
     };
     schema.forEach((s) => {
         var _a;
-        if ((0, utils_1.isField)(s)) {
+        if ((0, utils_1.isField)(s) || s.component === "identifier") {
             if (s.component === "checkbox" && ((_a = s.export) === null || _a === void 0 ? void 0 : _a.separate)) {
                 s.options.forEach((o, i) => {
                     columns[s.name + "__" + i] = s.label + "：" + o;

@@ -43,7 +43,7 @@ const validateValue = (input, watchAllFields) => (self) => {
 };
 exports.validateValue = validateValue;
 const isShow = (input, watchAllFields) => {
-    if (!input.show)
+    if (input.component === "identifier" || !input.show)
         return true;
     const expr = (0, js_to_json_logic_1.default)(input.show);
     let data = Object.assign(Object.assign({}, watchAllFields), { self: (0, _1.isField)(input) ? watchAllFields[input.name] : undefined });

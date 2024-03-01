@@ -1,4 +1,4 @@
-export type FormSchema0 = FormSchemaAutocomplete | FormSchemaBirthday | FormSchemaCard | FormSchemaCheckbox | FormSchemaMarkdown | FormSchemaRadio | FormSchemaSelect | FormSchemaTextfield | FormSchemaWarning;
+export type InputComponent = FormSchemaAutocomplete | FormSchemaBirthday | FormSchemaCard | FormSchemaCheckbox | FormSchemaIdentifier | FormSchemaMarkdown | FormSchemaRadio | FormSchemaSelect | FormSchemaTextfield | FormSchemaWarning;
 /**
  * 複数選択不可 / selectの強化版
  */
@@ -53,6 +53,15 @@ export interface FormSchemaCheckbox {
     export?: FormSchemaCheckboxExport;
     show?: string;
     validate?: FormSchemaValidation;
+}
+/**
+ * サーバーサイドで生成される識別子
+ */
+export interface FormSchemaIdentifier {
+    component: "identifier";
+    label: string;
+    name: string;
+    type: IdentifierGenerateType;
 }
 export interface FormSchemaMarkdown {
     component: "markdown";
@@ -109,7 +118,7 @@ export interface FormSchemaWarning {
     contents: string[];
     show?: string;
 }
-export type FormSchema = FormSchema0[];
+export type FormSchema = InputComponent[];
 export interface FormSchemaValidationItem {
     expr: string;
     message: string;
@@ -141,4 +150,9 @@ export declare enum HtmlInputTypeAttribute {
     Time = "time",
     Url = "url",
     Week = "week"
+}
+export declare enum IdentifierGenerateType {
+    NanoidCustom = "nanoid_custom_8",
+    Sequential = "sequential",
+    Uuidv4 = "uuidv4"
 }
