@@ -10,12 +10,16 @@
     "prebuild": "rm -rf dist",
     "build": "tsc -d",
     "codegen": "js-yaml schemas/form-schema.jtd.yaml > src/schema/form-schema.jtd.json && jtd-codegen src/schema/form-schema.jtd.json --typescript-out src/schema && sd 'FormSchema0' 'InputComponent' ./src/schema/index.ts",
-    "install-codegen:mac": "brew install jsontypedef/jsontypedef/jtd-codegen && npm install -g js-yaml"
+    "install-codegen:mac": "brew install jsontypedef/jsontypedef/jtd-codegen && npm install -g js-yaml",
+    "test": "node --import tsx --test ./src/**/*.test.ts"
   },
   "author": "ksawaa@ozonehl",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/node": "^18.14.0",
+    "fast-check": "^3.16.0",
+    "tsx": "^4.7.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {

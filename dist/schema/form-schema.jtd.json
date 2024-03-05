@@ -16,7 +16,7 @@
             },
             "warning": {
                 "metadata": {
-                    "description": "Deprecated <削除予定>"
+                    "description": "Deprecated <削除予定>\nmarkdownで代用可能\n"
                 },
                 "properties": {
                     "contents": {
@@ -33,7 +33,7 @@
             },
             "card": {
                 "metadata": {
-                    "description": "Deprecated <削除予定>"
+                    "description": "Deprecated <削除予定>\nmarkdownで代用可能\n"
                 },
                 "optionalProperties": {
                     "show": {
@@ -65,6 +65,9 @@
                     },
                     "show": {
                         "type": "string"
+                    },
+                    "format": {
+                        "ref": "formatType"
                     }
                 }
             },
@@ -232,7 +235,7 @@
             },
             "identifier": {
                 "metadata": {
-                    "description": "サーバーサイドで生成される識別子"
+                    "description": "サーバーサイドで生成される識別子\n例: UUID, nanoid, シーケンシャル\n"
                 },
                 "properties": {
                     "label": {
@@ -249,6 +252,26 @@
         }
     },
     "definitions": {
+        "formatType": {
+            "elements": {
+                "optionalProperties": {
+                    "expr": {
+                        "type": "string"
+                    },
+                    "function": {
+                        "enum": [
+                            "omitHyphen",
+                            "tel",
+                            "postcode",
+                            "hankaku"
+                        ]
+                    }
+                }
+            },
+            "metadata": {
+                "description": "submit時にデータの形式を変換する指定"
+            }
+        },
         "identifierGenerateType": {
             "enum": [
                 "uuidv4",
@@ -285,16 +308,25 @@
         "formSchemaValidation": {
             "optionalProperties": {
                 "required": {
-                    "type": "string"
+                    "type": "string",
+                    "metadata": {
+                        "description": "必須項目ならメッセージを入れる\nex: \"電話番号は必須項目です\"\n"
+                    }
                 },
                 "items": {
                     "elements": {
                         "properties": {
                             "expr": {
-                                "type": "string"
+                                "type": "string",
+                                "metadata": {
+                                    "description": "booleanになる式をjavascriptで記述します。\n利用できる関数や演算子は限られています。\njson-logic-jsのものを利用します。\nhttps://www.npmjs.com/package/json-logic-js\n\nex: self === '09012345678'\nex: self.length > 1\nex: self.length !== undefined\n\n正規表現は対応していませんが、カスタム関数があります。\n\nex: isTel(self)\nex: isEmail(self)\nex: isPostcode(self)\n\nself以外のフィールドについても取得できます。\n他コンポーネントの変数名はnameフィールドで指定します。\n\nex: self === passwordConfirm\n"
+                                }
                             },
                             "message": {
-                                "type": "string"
+                                "type": "string",
+                                "metadata": {
+                                    "description": "exprがfalseの場合のメッセージ\nex: \"電話番号の形式が間違っています\"\n"
+                                }
                             }
                         }
                     }

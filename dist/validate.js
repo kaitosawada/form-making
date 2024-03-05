@@ -12,11 +12,10 @@ const form_schema_jtd_json_1 = __importDefault(require("./schema/form-schema.jtd
 const ajv = new jtd_1.default();
 ajv.addKeyword("description");
 const isEmail = (value) => {
-    console.log(value);
     return /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/.test(value);
 };
 const isTel = (value) => {
-    return /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/.test(value);
+    return /^0\d{1,4}-?\d{1,4}-?\d{2,4}$/.test(value);
 };
 const isPostcode = (value) => {
     return /^[0-9]{3}-?[0-9]{4}$/.test(value);
@@ -24,6 +23,7 @@ const isPostcode = (value) => {
 json_logic_js_1.default.add_operation("isEmail", isEmail);
 json_logic_js_1.default.add_operation("isTel", isTel);
 json_logic_js_1.default.add_operation("isPostcode", isPostcode);
+// schemaの一部と他のフィールドを参照してバリデーションする関数を返す
 const validateValue = (input, watchAllFields) => (self) => {
     if ((0, _1.isField)(input) && input.validate) {
         if (input.validate.required && (!self || self === "")) {

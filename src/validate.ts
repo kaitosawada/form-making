@@ -1,5 +1,5 @@
 import jsonLogic from "json-logic-js";
-import parse from "js-to-json-logic";
+import transformJS from "js-to-json-logic";
 import { InputComponent, isField } from ".";
 import Ajv from "ajv/dist/jtd";
 import schema from "./schema/form-schema.jtd.json";
@@ -8,15 +8,12 @@ const ajv = new Ajv();
 ajv.addKeyword("description");
 
 const isEmail = (value: string) => {
-  console.log(value);
   return /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/.test(
     value
   );
 };
 const isTel = (value: string) => {
-  return /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/.test(
-    value
-  );
+  return /^0\d{1,4}-?\d{1,4}-?\d{2,4}$/.test(value);
 };
 const isPostcode = (value: string) => {
   return /^[0-9]{3}-?[0-9]{4}$/.test(value);
@@ -26,6 +23,7 @@ jsonLogic.add_operation("isEmail", isEmail);
 jsonLogic.add_operation("isTel", isTel);
 jsonLogic.add_operation("isPostcode", isPostcode);
 
+// schemaの一部と他のフィールドを参照してバリデーションする関数を返す
 export const validateValue =
   (input: InputComponent, watchAllFields: any) =>
   (self: any): string | undefined => {
@@ -35,7 +33,7 @@ export const validateValue =
       }
       if (input.validate.items) {
         for (const validate of input.validate.items) {
-          const expr = parse(validate.expr);
+          const expr = transformJS(validate.expr);
           const result = jsonLogic.apply(expr, {
             ...watchAllFields,
             self: self,
@@ -51,7 +49,7 @@ export const validateValue =
 
 export const isShow = (input: InputComponent, watchAllFields: any) => {
   if (input.component === "identifier" || !input.show) return true;
-  const expr = parse(input.show);
+  const expr = transformJS(input.show);
   let data: any = {
     ...watchAllFields,
     self: isField(input) ? watchAllFields[input.name] : undefined,

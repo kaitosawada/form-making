@@ -10,7 +10,9 @@ elements:
           type: string
     warning:
       metadata:
-        description: Deprecated <削除予定>
+        description: |
+          Deprecated <削除予定>
+          markdownで代用可能
       properties:
         contents:
           elements:
@@ -20,7 +22,9 @@ elements:
           type: string
     card:
       metadata:
-        description: Deprecated <削除予定>
+        description: |
+          Deprecated <削除予定>
+          markdownで代用可能
       optionalProperties:
         show:
           type: string
@@ -41,6 +45,8 @@ elements:
           ref: formSchemaValidation
         show:
           type: string
+        format:
+          ref: formatType
     birthday:
       metadata:
         description: Unimplemented <未実装>
@@ -144,7 +150,9 @@ elements:
           type: string
     identifier:
       metadata:
-        description: サーバーサイドで生成される識別子
+        description: |
+          サーバーサイドで生成される識別子
+          例: UUID, nanoid, シーケンシャル
       properties:
         label:
           type: string
@@ -152,9 +160,21 @@ elements:
           type: string
         type:
           ref: identifierGenerateType
-        
 
 definitions:
+  formatType:
+    elements:
+      optionalProperties:
+        expr:
+          type: string
+        function:
+          enum:
+            - omitHyphen
+            - tel
+            - postcode
+            - hankaku
+    metadata:
+      description: submit時にデータの形式を変換する指定
   identifierGenerateType:
     enum:
       - uuidv4
@@ -188,10 +208,40 @@ definitions:
     optionalProperties:
       required:
         type: string
+        metadata:
+          description: |
+            必須項目ならメッセージを入れる
+            ex: "電話番号は必須項目です"
       items:
         elements:
           properties:
             expr:
-              type: string # JSON Logic
+              type: string
+              metadata:
+                description: |
+                  booleanになる式をjavascriptで記述します。
+                  利用できる関数や演算子は限られています。
+                  json-logic-jsのものを利用します。
+                  https://www.npmjs.com/package/json-logic-js
+
+                  ex: self === '09012345678'
+                  ex: self.length > 1
+                  ex: self.length !== undefined
+
+                  正規表現は対応していませんが、カスタム関数があります。
+
+                  ex: isTel(self)
+                  ex: isEmail(self)
+                  ex: isPostcode(self)
+
+                  self以外のフィールドについても取得できます。
+                  他コンポーネントの変数名はnameフィールドで指定します。
+
+                  ex: self === passwordConfirm
+
             message:
               type: string
+              metadata:
+                description: |
+                  exprがfalseの場合のメッセージ
+                  ex: "電話番号の形式が間違っています"
