@@ -21,14 +21,14 @@ const formatPostcode = (value) => {
 };
 // schemaの一部と他のフィールドを参照してデータを正規化する関数を返す
 const createFormatter = (input) => (self) => {
-    if (input.component === "textfield" && input.format) {
+    if (input.component === "textfield" && input.format && typeof self === "string") {
         let result = self;
         for (const format of input.format) {
             if (format.function === "tel") {
-                return formatTel(self);
+                result = formatTel(result);
             }
             if (format.function === "postcode") {
-                return formatPostcode(self);
+                result = formatPostcode(result);
             }
         }
         return result;
